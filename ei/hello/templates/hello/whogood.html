@@ -1,0 +1,67 @@
+{% block content %}
+{% load static %}
+
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title><!--ウェブサイト上部の説明欄てきな-->
+    <link rel="stylesheet" type="text/css" href="{% static 'hello/css/style.css' %}" />
+   
+
+</head>
+<body bgcolor="white">
+    <h1></h1>
+    <div align="center">
+  
+        <a href="{% url 'index' %}" class="btn">HOME</a>
+        <a href="{% url 'follow' %}" class="btn">フォロー</a>
+
+
+    </div>
+
+    <br>
+<div class="an"></div>
+
+ <div class="an1"></div>
+
+    <div align="center">
+    <p>フォローいいね</p>
+
+    <div class="an123"></div>
+<ul>
+    <li class="name">
+        <form action="{% url 'whogood' %}" method="post">
+            {% csrf_token%}
+            <input type = "hidden" name="mode" value="_userform_">
+            {{userform}}
+            <button>検索</button>
+        </form>
+    </li>
+
+    
+
+
+
+
+    <br><br>
+    {% for item in data %}
+    <table >
+        <tr>
+            <td>
+                    <div class="an12"></div>
+                    <div class="title "align="left">{{item.user}}<br>
+                    <div align="center">いいねしたアニメ：{{item.good.title}}
+            
+                    </div>
+                    <div class="an12"></div>
+            </td>
+        </tr>
+
+    </table>
+
+    {% endfor %}
+    {% endblock %}
+    </div>
+</body>
+</html>

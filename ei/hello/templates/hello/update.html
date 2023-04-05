@@ -1,0 +1,26 @@
+
+{% load static %}
+
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>更新画面</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'hello/css/style.css' %}" />
+    </head>
+<body bgcolor="white">
+    <h1>更新</h1>
+    <p>以下のレコードの放送日・ジャンルを更新します</p>
+    <table>
+   
+
+            <form action="{% url 'update' id %}" method="post">
+                {% csrf_token %}
+                <tr><td></td><td><input type="submit" value="click"></td></tr>
+                
+            </form>
+       
+    </table>
+    <a href="{% url 'index' %}">TOPに戻る</a>
+</body>
+</html>

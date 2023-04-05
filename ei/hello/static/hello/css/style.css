@@ -1,0 +1,212 @@
+h1{
+    color:#000000;
+}
+
+a{
+    color:#000000;
+    text-decoration: none;
+
+}
+
+p{
+    font-size: large;
+    
+}
+
+table{
+    margin: 10px;
+    font: size 14pt;
+    text-align: center;
+    width: 500px;
+    border: 2px #808080 solid;
+
+}
+
+table tr th{
+    background-color: white;
+    color:#000000;
+    padding:2px 10px;
+    border: width 2px;
+}
+
+table tr td{
+    background-color: white;
+    color:#000000;
+    padding:2px 10px;
+    border: width 2px;
+
+}
+
+.display_test{
+    margin: auto;
+
+}
+
+
+.btn {
+    background-color: white;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    margin: 15px;
+    width:980px;
+
+    
+  }
+
+.btn:hover{
+    color:#8b4513;
+}
+
+.follow{
+    color: #000000;
+}
+.follow:hover{
+    color: #808080;
+}
+.an{
+    margin:40px;
+}
+
+.an1{
+    margin:60px;
+}
+
+.title{
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.mede{
+    margin:50px;
+}
+
+.mes{
+    margin: 10px;
+    font: size 14pt;
+    text-align: center;
+    width: 500px;
+    border: 2px #808080 solid;
+}
+
+.new{
+    margin: 15px;
+}
+
+.choice{
+    padding-top: 0%;
+    height:auto;
+    background-color: transparent;
+    display: inline-block;
+    text-align: right;
+	clear: both;
+    display: flex;
+    justify-content: center;
+}
+    
+
+
+.fix{
+    text-align: center ;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background:white;
+}
+
+ul li {
+    list-style: none;
+}
+
+label {
+    margin-right: 10px;
+    width:100px;
+    float: left;
+}
+
+ul {
+    width: 500px;
+    margin: 0 auto;
+}
+
+
+input#button {
+    display: block;
+    margin: 0 auto;
+}
+
+.an12{
+    margin:5px;
+}
+
+.an123{
+    margin:60px;
+}
+
+.inner{
+    position: absolute;
+    top: 35%;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    margin: auto;
+    width: 80%;
+    height: 3.2rem;
+}
+
+.inner{
+    position: absolute;
+    top: 2%;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    margin: auto;
+    width: 80%;
+    height: 3.2rem;
+}
+
+table.senti{
+    margin: 10px;
+    font: size 14pt;
+    text-align: center;
+    width: 400px;
+    border: 2px #808080 solid;
+
+}
+
+table.senti tr th{
+    background-color: white;
+    color:#000000;
+    padding:2px 10px;
+    border: width 2px;
+    font-size: 30px;
+}
+
+table.senti tr td{
+    background-color: white;
+    color:#000000;
+    padding:2px 10px;
+    border: width 2px;
+
+}
+
+.sale{
+    position: absolute;
+    top: auto;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    margin: auto;
+    width: 80%;
+    height: 3.2rem;
+
+}
+
+.col-auto my-1{
+    width: 300px;
+    height: 100px;
+    border: 10px dotted blue;
+    text-align: center;
+}
+

@@ -1,0 +1,37 @@
+
+{% load static %}
+
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>メッセージ削除画面</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'hello/css/style.css' %}" />
+    </head>
+    <body bgcolor="white">
+    <h1>感想削除</h1>
+    <div align="center">
+        <h1></h1>
+        <a href="{% url 'index' %}" class="btn">HOME</a>
+        <a href="{% url 'create' %}" class="btn">新規アニメ登録</a>
+        <a href="{% url 'medelete' %}" class="btn">過去の感想</a>
+        <a href="{% url 'think' %}" class="btn">感想</a>
+        <a href="{% url 'reverse' %}" class="btn">登録順</a>
+        <div class="an"></div>
+    <div align="center">
+    <p>過去に投稿したコメントを削除します</p>
+    <table class="tbl">
+        <tr>
+            <th>アニメ</th><td>{{item.Anime.title}}</td></tr>
+            <th>感想</th><td>{{item.content}}</td></tr>
+            <tr><th>記入日</th><td>{{item.update}}</td></tr>
+
+            <form action="{% url 'delete' id %}" method="post">
+                {% csrf_token %}
+                <tr><td></td><td><input type="submit" value="click"></td></tr>
+            </form>
+       
+    </table>
+    </div>
+</body>
+</html>

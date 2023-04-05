@@ -1,0 +1,38 @@
+
+{% load static%}
+
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>コメント削除</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'hello/css/style.css' %}" />
+</head>
+
+<body bgcolor="white">
+
+<div align="center">
+<div class="mede">
+    <a href="{% url 'index' %}" class="btn">HOME</a>
+    <a href="{% url 'favorite' %}" class="btn">いいねしたアニメ</a>
+
+</div>
+
+<div class="an"></div>
+
+<ul>
+    {% for item in datas %}
+    <table>
+        <td><a href="{% url 'delete' item.id %}"><div class="title "align="left">{{item.user.username}}</div>
+        <div align="right">{{item.update}}</div><br>
+        {{item.content}}
+    </a></td>
+
+        {% endfor %}
+        
+    </table>
+</ul>
+</body>
+</html>
+

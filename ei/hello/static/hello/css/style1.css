@@ -1,0 +1,74 @@
+body{
+    color :#000000
+}
+
+
+table{
+    margin: 10px;
+    font: size 14pt;
+    text-align: center;
+    width: 500px;
+    border: 2px #808080 solid;
+
+}
+
+table tr th{
+    background-color: white;
+    color:#000000;
+    padding:2px 10px;
+    border: width 2px;
+}
+
+table tr td{
+    background-color: white;
+    color:#000000;
+    padding:2px 10px;
+    border: width 2px;
+
+}
+
+.display_test{
+    margin: auto;
+
+}
+
+
+.btn {
+    background-color: white;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    margin: 15px;
+    width:980px;
+
+    
+  }
+
+.btn:hover{
+    color:#8b4513;
+}
+
+
+.an{
+    margin:40px;
+}
+
+
+.fix{
+    text-align: center ;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.inner{
+    position: absolute;
+    top: 25%;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    margin: auto;
+    width: 80%;
+    height: 3.2rem;
+}

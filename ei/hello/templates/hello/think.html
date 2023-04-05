@@ -1,0 +1,53 @@
+
+{% load static %}
+
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title><!--ウェブサイト上部の説明欄てきな-->
+    <link rel="stylesheet" type="text/css" href="{% static 'hello/css/style.css' %}" />
+   
+
+</head>
+<body bgcolor="white">
+    <h1>{{title}}</h1>
+    <div class="fix" align="center">
+        <a href="{% url 'index' %}" class="btn">HOME</a>
+        <a href="{% url 'create' %}" class="btn">新規アニメ登録</a>
+        <a href="{% url 'medelete' %}" class="btn">過去の感想</a>
+        <a href="{% url 'think' %}" class="btn">感想</a>
+    </div>
+
+<div class="an123"></div>
+
+<ul>
+    <li class="name">
+        <form action="{% url 'think' %}" method="post">
+            {% csrf_token%}
+            <input type = "hidden" name="mode" value="_contentform_">
+            {{contentform}}
+            <button>感想から検索</button>
+        </form>
+    </li>
+
+ <div class="an1"></div>
+
+<div align="center">
+    <p>アニメ一覧</p>
+    <hr size="3" width="50%" color="black">
+    {% for item in data %}
+    <table >
+        <tr>
+            <td>
+                <a href="{% url 'message' item.Anime.id %}">
+                    <div class="title "align="left">タイトル名:{{item.Anime.title}}</div>
+                    ジャンル:{{item.Anime.genre}}<br>作者：{{item.Anime.author}}
+                </a>
+            </td>
+        </tr>
+          {% endfor %}
+    </table>
+    </div>
+</body>
+</html>

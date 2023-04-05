@@ -1,0 +1,48 @@
+{% block content %}
+{% load static %}
+
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title><!--ウェブサイト上部の説明欄てきな-->
+    <link rel="stylesheet" type="text/css" href="{% static 'hello/css/style.css' %}" />
+   
+
+</head>
+<body bgcolor="white">
+    <h1></h1>
+    <div align="center">
+  
+        <a href="{% url 'index' %}" class="btn">HOME</a>
+        <a href="{% url 'medelete' %}" class="btn">過去に投稿した感想</a>
+
+
+    </div>
+
+    <br>
+<div class="an"></div>
+
+ <div class="an1"></div>
+
+    <div align="center">
+    <p>いいね</p>
+
+    {% for item in data %}
+    <table >
+        <tr>
+            <td>
+                    <div class="an12"></div>
+                    <a href="{% url 'gooddelete' item.id %}"><div class="title "align="center">{{item.good.title}}</div>
+                    <div class="an12"></div>
+                </a>
+            
+            </td>
+        
+        </tr>
+          {% endfor %}
+    </table>
+    </div>
+    {% endblock %}
+</body>
+</html>

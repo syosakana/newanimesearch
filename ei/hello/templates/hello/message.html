@@ -1,0 +1,179 @@
+
+{% load static %}
+
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>{{title}}</title><!--ウェブサイト上部の説明欄てきな-->
+    <link rel="stylesheet" type="text/css" href="{% static 'hello/css/style.css' %}" />
+   
+
+</head>
+<body bgcolor="white">
+    <h1></h1>
+<div class="mede"></div>
+<div class="innner">
+    <div align="center">
+      <a href="{% url 'index' %}" class="btn">HOME</a>
+      <a href="{% url 'create' %}" class="btn">新規アニメ登録</a>
+      <a href="{% url 'medelete' %}" class="btn">過去の感想</a>
+      <a href="{% url 'think' %}" class="btn">感想</a>
+    
+
+
+    <div class="an"></div>
+
+  
+    <table class="mes">
+        <tr>
+            <td>
+            <div class="title">
+              <div align="left">タイトル名:{{data.title}}</div>
+            <div align="right"> ジャンル:{{data.genre}}</div><br>
+            作者：{{data.author}} <br>
+                放送開始日:{{data.broadcaststart}}・・・放送終了日:{{data.broadcastfinish}}<br>
+                <br>
+            <div align="right">登録日時:{{data.registerdate}}</div>
+            </td>
+            
+        </tr>
+    
+        </table>
+
+        
+        <a href="{% url 'god' data.id %}"><button>good!</button></a>
+        {% for message in messages %}
+    <div {% if message.tags %}class="{{message.tags}}"{% endif %} >
+        {{message}}
+    </div>
+    {% endfor %}
+
+        <div class="an"></div>
+        
+        <ul>
+
+        <form action="{% url 'message'  id %}" method="post">
+            {% csrf_token%}
+        <input type = "hidden" name="mode" value="_contentform_">
+        {{contentform}}
+        <button>検索</button>
+        </form>
+        <div class="an"></div>
+        </ul>
+        
+        <p>感想</p>
+        <hr size="3" width="50%" color="black">
+
+
+        <script>
+
+        function viewChange(){
+          if(document.getElementById('sample')){
+              id = document.getElementById('sample').value;
+              if(id == 'select1'){
+                  document.getElementById('Box1').style.display = "";
+                  document.getElementById('Box2').style.display = "none";
+                  document.getElementById('Box3').style.display = "none";
+              }else if(id == 'select2'){
+                  document.getElementById('Box1').style.display = "none";
+                  document.getElementById('Box2').style.display = "";
+                  document.getElementById('Box3').style.display = "none";
+              }
+              else if(id == 'select3'){
+                  document.getElementById('Box1').style.display = "none";
+                  document.getElementById('Box2').style.display = "none";
+                  document.getElementById('Box3').style.display = "";
+              }
+          }
+      
+      window.onload = viewChange;
+      }
+      </script>
+      <br>
+
+      <div align="center">
+        <div class="col-auto my-1">
+      </div>
+      <div class="col-auto my-1">
+          <select class="form-control" id="sample" onchange="viewChange();">
+              <option value="select1">全ての感想</option>
+              <option value="select2">良い印象の感想</option>
+              <option value="select3">悪い印象の感想</option>
+          </select>
+      </div>
+      <br><br>
+    <div class="sale">
+      <br>
+      <div class="col-auto my-5">
+          <div id="Box1" class="my-5">
+            
+              <p>全ての感想</p>
+              {% for item in datas %}
+              <table>
+              <td>
+                <div class="title"align="left">"{{item.user}}"</div><div align="right"><a href = "{% url 'add' %}?name={{item.user}}"  class="follow" >follow</a></div>
+                  <div align="center">{{item.content}}<br><br></div>
+                <div align="right">{{item.update}}</div>
+                </td>
+                
+              {% endfor %}
+            </table>
+            <br>
+          </div>
+
+          
+          <div id="Box2" class="my-5" style="display:none;">
+            <li>良い印象の感想</li>
+            
+            <table class="senti">
+              <tr>
+              
+              {% for i in list reversed %}
+              <tr>
+                <td>{{i}}</td>
+                {% endfor %}
+              </tr>
+              </tr>
+            </table>
+          </div>
+
+          
+          <div id="Box3" class="my-5" style="display:none;"> 
+            
+            <li>悪い印象の感想</li>
+            <table class="senti">
+              <tr>
+              {% for aooo in listt %}
+              <tr>
+              <td>{{aooo}}</td>
+              {% endfor %}
+              </tr>
+            </table>
+          </div>
+      </div>
+
+      <br><br>
+      <ul>
+        <form action="{% url 'message' id %}" method="post">
+            {% csrf_token %}
+            <input type = "hidden" name="mode" minLength="5" value="_registerform_">
+            {{form.as_table}}
+            {{ value | linebreaksbr }}
+            <button>感想を投稿する</button>
+
+        </form>
+      </ul>
+
+      <br><br><br><br>
+
+        
+
+        </div>
+      </div>
+    </div>
+    
+</div>
+</body>
+
+</html>
